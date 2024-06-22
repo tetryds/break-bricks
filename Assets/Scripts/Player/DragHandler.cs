@@ -37,12 +37,12 @@ namespace Bricks.Player
             Vector2 targetPos = Input.touchCount > 0 ? Input.GetTouch(0).position : Vector2.zero;
             pos += (targetPos - pos) * gain * Time.deltaTime;
 
-            positions[0] = pos;
-
             for (int i = positions.Length - 1; i >= 1; i--)
             {
                 positions[i] = positions[i - 1];
             }
+
+            positions[0] = pos;
 
             if (dragging)
             {
